@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Force dark mode for the entire site */
+  :root {
+    color-scheme: dark;
+    
+    /* Cybertruck meets iPod meets Space Colony HSL colors */
+    --background: 218 28% 7%; /* Space-black */
+    --foreground: 210 40% 98%;
+ 
+    --muted: 210 28% 13%; 
+    --muted-foreground: 210 20% 75%;
+ 
+    --popover: 218 28% 7%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --card: 213 23% 8%;
+    --card-foreground: 210 40% 96.1%;
+ 
+    --border: 210 24% 16%;
+    --input: 214 20% 20%;
+ 
+    --primary: 183 100% 75%; /* Electric cyan */
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 15% 60%; /* Brushed steel */
+    --secondary-foreground: 213 23% 8%;
+ 
+    --accent: 300 100% 53%; /* Neon pink */
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --ring: 183 100% 75%;
+ 
+    --radius: 0.25rem; /* Sharper corners for cyber aesthetic */
+
+    /* Text sizes */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 24px;
+
+    /* Cybertruck/Futuristic color palette - bright teal with dark text */
+    --primary-legacy: #7DF9FF; /* Bright cybertruck teal */
+    --primary-dark: #00B0BD;
+    --primary-light: #A5FDFF;
+    
+    --secondary-legacy: #8C9CA8; /* Brushed steel */
+    --secondary-dark: #566570;
+    --secondary-light: #C0CBD4;
+    
+    --accent-legacy: #DA2FB7; /* Toned down neon pink */
+    --accent-light: #EC74D0;
+    
+    --space-black: #0D1117; /* Deep space black */
+    --space-dark: #161B22;
+    --space-gray: #21262D;
+    --space-void: #010409;
+    
+    --neon-blue: #7DF9FF; /* Bright cybertruck cyan */
+    --neon-pink: #DA2FB7;
+    --neon-purple: #8C32C1;
+    --neon-green: #36C758;
+    
+    --text-dark: #F2F5F9;
+    --text-light: #1A202C;
+    --success: #39FF14; /* Neon green */
+    --warning: #FFC53D;
+    --error: #FF3A5E;
+    
+    /* Animation */
+    --shimmer-from: -100%;
+    --shimmer-to: 100%;
+    
+    /* Grid settings for cyber aesthetic */
+    --grid-size: 20px;
+    --grid-strength: 0.1;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 text-space-black font-medium bg-primary-legacy rounded shadow-neon border border-primary-legacy/70 hover:shadow-neon-strong hover:bg-primary-light transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2 text-white bg-secondary-legacy/20 backdrop-blur-sm rounded border border-secondary-legacy/40 hover:bg-secondary-legacy/30 hover:border-secondary-legacy/60 transition-all duration-300;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-4 py-2 text-primary-legacy bg-transparent border border-primary-legacy/30 rounded hover:border-primary-legacy/70 hover:bg-primary-legacy/10 hover:shadow-inner-neon transition-all duration-300;
+  }
+  
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-4 py-2 text-white bg-accent-legacy rounded border border-accent-legacy/60 hover:bg-accent-light transition-all duration-300;
+  }
+  
+  .card-cyber {
+    @apply bg-space-dark/80 backdrop-blur-sm border border-primary-legacy/20 rounded transition-all duration-300 hover:border-primary-legacy/40 hover:shadow-glow-sm;
+  }
+  
+  .card-future {
+    @apply bg-gradient-to-b from-space-dark to-space-black backdrop-blur-sm border border-secondary-legacy/20 rounded transition-all duration-300 shadow-md;
+  }
+  
+  .card-glass {
+    @apply bg-space-black/30 backdrop-blur-md border border-white/10 rounded transition-all duration-300;
+  }
+  
+  .feature-card {
+    @apply bg-space-dark/40 backdrop-blur-sm border border-primary-legacy/10 rounded transition-all duration-300 h-full hover:border-primary-legacy/30 hover:shadow-glow-sm;
+  }
+  
+  .cyber-text {
+    @apply text-primary-legacy font-medium;
+  }
+  
+  .cyber-heading {
+    @apply font-bold text-white tracking-wide;
+  }
+  
+  .cyber-grid {
+    @apply bg-cyber-grid bg-[length:var(--grid-size)_var(--grid-size)];
+  }
+  
+  .space-gradient {
+    @apply bg-space-gradient;
+  }
+  
+  .shadow-glow {
+    @apply shadow-[0_0_15px_rgba(5,183,198,0.7),_0_0_30px_rgba(5,183,198,0.4)];
+  }
+  
+  .shadow-glow-sm {
+    @apply shadow-[0_0_10px_rgba(5,183,198,0.5),_0_0_20px_rgba(5,183,198,0.3)];
+  }
+  
+  .neon-border {
+    @apply border border-primary-legacy/60;
+  }
+  
+  .neon-text {
+    @apply text-primary-legacy font-medium;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  line-height: 1.2;
+  color: hsl(var(--foreground));
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: hsl(var(--primary));
+  text-decoration: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-light);
+}
+
+/* Landing page specific styles */
+.landing-page section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+}
+
+html, body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Code display styles */
+pre {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(var(--shimmer-from));
+  }
+  100% {
+    transform: translateX(var(--shimmer-to));
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes borderPulse {
+  0% {
+    border-color: rgba(5, 183, 198, 0.3);
+  }
+  50% {
+    border-color: rgba(5, 183, 198, 0.8);
+  }
+  100% {
+    border-color: rgba(5, 183, 198, 0.3);
+  }
+}
+
+.border-pulse {
+  animation: borderPulse 2s infinite;
+}
