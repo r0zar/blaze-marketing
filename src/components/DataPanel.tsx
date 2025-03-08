@@ -20,7 +20,6 @@ const DataPanel: React.FC<DataPanelProps> = ({ onSign }) => {
         }, 500);
       }
     })
-
     return () => {
       window.removeEventListener('message', () => { });
     }

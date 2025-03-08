@@ -5,7 +5,6 @@ import ConnectionPanel from '../components/ConnectionPanel';
 import DataPanel from '../components/DataPanel';
 import SignatureResults from '../components/SignatureResults';
 import DeveloperSection from '../components/DeveloperSection';
-import { initializeSignetSDK } from 'signet-sdk';
 
 const SignetDemoSection: React.FC = () => {
   // Component state

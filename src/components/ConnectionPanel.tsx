@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { initializeSignetSDK } from 'signet-sdk';
-
 
 interface ConnectionPanelProps {
   onConnect: () => void;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { initializeSignetSDK } from 'signet-sdk';
 import HeroSection from '../sections/HeroSection';
 import KeyMetricsSection from '../sections/KeyMetricsSection';
 import HowItWorksSection from '../sections/HowItWorksSection';
